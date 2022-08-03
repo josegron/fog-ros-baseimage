@@ -114,6 +114,7 @@ bloom-generate rosdebian --os-name ubuntu --os-version focal --ros-distro ${ROS_
 
 sed -i "s/@(DebianInc)@(Distribution)/@(DebianInc)/" debian/changelog.em
 
+# modify the distribution in the template and ignore warnings from sed and not stop the script.
 [ ! "$distr" = "" ] && sed -i "s/@(Distribution)/${distr}/" debian/changelog.em || :
 
 bloom-generate rosdebian --os-name ubuntu --os-version focal --ros-distro ${ROS_DISTRO} --process-template-files -i ${build_nbr}${git_version_string}
