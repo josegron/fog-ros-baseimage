@@ -45,7 +45,7 @@ RUN groupadd -g $GID builder && \
 
 COPY builder/packaging /packaging
 
-ARG GO_VERSION=1.18.2
+ARG GO_VERSION=1.19
 
 # Install golang
 RUN curl -L https://golang.org/dl/go$GO_VERSION.linux-amd64.tar.gz \
