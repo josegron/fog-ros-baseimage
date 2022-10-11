@@ -43,7 +43,7 @@ RUN apt install -y \
 RUN apt install -y \
 	ros-${ROS_DISTRO}-fog-msgs=0.0.8-42~git20220104.1d2cf3f \
 	ros-${ROS_DISTRO}-px4-msgs=4.0.0-31~git20220804.5058022 \
-	ros-${ROS_DISTRO}-fognav-msgs=0.1.0-21~git20220713.7afa997
+	ros-${ROS_DISTRO}-fognav-msgs=0.1.0-33~git20221007.a0451ca
 
 # wrapper used to launch ros with proper environment variables
 COPY ros-with-env.sh /usr/bin/ros-with-env
