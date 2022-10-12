@@ -19,13 +19,17 @@ RUN FOG_DEB_REPO="https://ssrc.jfrog.io/artifactory/ssrc-deb-public-local" \
 	&& echo "deb [trusted=yes] ${FOG_DEB_REPO} $(lsb_release -cs) fog-sw-sros" >> /etc/apt/sources.list.d/fogsw-sros.list \
 	&& apt update
 
+# fog-health is used by concrete applications as a container HEALTHCHECK to derive health status from
+# Prometheus metrics. currently installing from S3 bucket because I failed to setup download from private repo's releases.
+ADD https://s3.amazonaws.com/files.function61.com/random-drops/2023/fog-health_linux-amd64 /usr/bin/fog-health
+
 # be careful about introducing dependencies here that already come from ros-core, because adding
 # them again here means updating them to latest version, which might not be what we want?
 #
 # FastRTPS pinned because our SSRC repo had newer version which was incompatible with our current applications.
 # WARNING: the same pinning happens in Dockerfile.builder, please update that if you change this!
 # TODO: remove pinning once it's no longer required
-RUN apt install -y \
+RUN chmod +x /usr/bin/fog-health && apt install -y \
 	ros-${ROS_DISTRO}-geodesy \
 	ros-${ROS_DISTRO}-tf2-ros \
 	# Packages with PKCS#11 feature
