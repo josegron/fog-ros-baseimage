@@ -19,6 +19,10 @@ RUN FOG_DEB_REPO="https://ssrc.jfrog.io/artifactory/ssrc-debian-public-remote" \
 	&& echo "deb [trusted=yes] ${FOG_DEB_REPO} $(lsb_release -cs) fog-sw-sros" >> /etc/apt/sources.list.d/fogsw-sros.list \
 	&& apt update
 
+# fog-health is used by concrete applications as a container HEALTHCHECK to derive health status from
+# Prometheus metrics. currently installing from S3 bucket because I failed to setup download from private repo's releases.
+ADD https://s3.amazonaws.com/files.function61.com/random-drops/2023/fog-health_linux-amd64 /usr/bin/fog-health
+
 # be careful about introducing dependencies here that already come from ros-core, because adding
 # them again here means updating them to latest version, which might not be what we want?
 #
@@ -40,7 +44,8 @@ RUN apt install -y \
 	ros-${ROS_DISTRO}-rosidl-typesupport-fastrtps-cpp=1.2.1-34~git20220815.16ec09c \
 	ros-${ROS_DISTRO}-fog-msgs=0.0.8-42~git20220104.1d2cf3f \
 	ros-${ROS_DISTRO}-px4-msgs=4.0.0-31~git20220804.5058022 \
-	ros-${ROS_DISTRO}-fognav-msgs=0.1.0-33~git20221007.a0451ca
+	ros-${ROS_DISTRO}-fognav-msgs=0.1.0-33~git20221007.a0451ca && \
+	chmod +x /usr/bin/fog-health
 
 # wrapper used to launch ros with proper environment variables
 COPY ros-with-env.sh /usr/bin/ros-with-env

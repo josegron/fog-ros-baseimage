@@ -24,6 +24,7 @@ RUN FOG_DEB_REPO="https://ssrc.jfrog.io/artifactory/ssrc-debian-public-remote" \
 
 # Install build dependencies
 # - ros-<DISTRO>-rmw-fastrtps-cpp is needed for building msgs (fog-msgs, px4-msgs)
+# - prometheus-cpp is needed for build headers
 #
 # WARNING: the same FastRTPS pinning happens in Dockerfile, please update that if you change this!
 #   (see the other file for rationale. we need pinning in builder also due to micrortps-agent linking directly to fastrtps)
@@ -32,6 +33,7 @@ RUN apt-get update -y && apt-get install -y --no-install-recommends \
     python3-bloom \
     dh-make \
     libboost-dev \
+    prometheus-cpp \
     ros-${ROS_DISTRO}-fastrtps=2.5.1-34~git20221127.d398c9e \
     ros-${ROS_DISTRO}-rmw-fastrtps-cpp=5.0.0-34~git20221127.c2deeb1 \
     && rm -rf /var/lib/apt/lists/*
