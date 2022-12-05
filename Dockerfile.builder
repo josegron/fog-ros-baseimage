@@ -32,8 +32,8 @@ RUN apt-get update -y && apt-get install -y --no-install-recommends \
     python3-bloom \
     dh-make \
     libboost-dev \
-    ros-${ROS_DISTRO}-fastrtps=2.5.1-11~git20220620.d06f990 \
-    ros-${ROS_DISTRO}-rmw-fastrtps-cpp=5.0.0-8~git20220620.8343d85 \
+    ros-${ROS_DISTRO}-fastrtps=2.5.1-34~git20221127.d398c9e \
+    ros-${ROS_DISTRO}-rmw-fastrtps-cpp=5.0.0-34~git20221127.c2deeb1 \
     && rm -rf /var/lib/apt/lists/*
 
 # dedicated user because ROS builds can complain if building as root.

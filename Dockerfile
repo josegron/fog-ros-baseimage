@@ -29,18 +29,15 @@ RUN apt install -y \
 	ros-${ROS_DISTRO}-geodesy \
 	ros-${ROS_DISTRO}-tf2-ros \
 	# Packages with PKCS#11 feature
-	ros-${ROS_DISTRO}-fastcdr=1.0.23-7~git20220620.92bc6c3 \
-	ros-${ROS_DISTRO}-fastrtps=2.5.1-11~git20220620.d06f990 \
-	ros-${ROS_DISTRO}-fastrtps-cmake-module=1.2.1-7~git20220620.b0a519b \
-	ros-${ROS_DISTRO}-foonathan-memory-vendor=1.2.1-5~git20220620.69df181 \
-	ros-${ROS_DISTRO}-rmw-fastrtps-cpp=5.0.0-8~git20220620.8343d85 \
-	ros-${ROS_DISTRO}-rmw-fastrtps-dynamic-cpp=5.0.0-8~git20220620.8343d85 \
-	ros-${ROS_DISTRO}-rmw-fastrtps-shared-cpp=5.0.0-8~git20220620.8343d85 \
-	ros-${ROS_DISTRO}-rosidl-typesupport-fastrtps-c=1.2.1-7~git20220620.b0a519b \
-	ros-${ROS_DISTRO}-rosidl-typesupport-fastrtps-cpp=1.2.1-7~git20220620.b0a519b
-
-# install packages from release 6.1
-RUN apt install -y \
+	ros-${ROS_DISTRO}-fastcdr=1.0.23-34~git20220620.92bc6c3 \
+	ros-${ROS_DISTRO}-fastrtps=2.5.1-34~git20221127.d398c9e \
+	ros-${ROS_DISTRO}-fastrtps-cmake-module=1.2.1-34~git20220815.16ec09c \
+	ros-${ROS_DISTRO}-foonathan-memory-vendor=1.2.1-34~git20220620.69df181 \
+	ros-${ROS_DISTRO}-rmw-fastrtps-cpp=5.0.0-34~git20221127.c2deeb1 \
+	ros-${ROS_DISTRO}-rmw-fastrtps-dynamic-cpp=5.0.0-34~git20221127.c2deeb1 \
+	ros-${ROS_DISTRO}-rmw-fastrtps-shared-cpp=5.0.0-34~git20221127.c2deeb1 \
+	ros-${ROS_DISTRO}-rosidl-typesupport-fastrtps-c=1.2.1-34~git20220815.16ec09c \
+	ros-${ROS_DISTRO}-rosidl-typesupport-fastrtps-cpp=1.2.1-34~git20220815.16ec09c \
 	ros-${ROS_DISTRO}-fog-msgs=0.0.8-42~git20220104.1d2cf3f \
 	ros-${ROS_DISTRO}-px4-msgs=4.0.0-31~git20220804.5058022 \
 	ros-${ROS_DISTRO}-fognav-msgs=0.1.0-33~git20221007.a0451ca
