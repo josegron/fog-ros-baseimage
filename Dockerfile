@@ -1,4 +1,4 @@
-ARG ROS_DISTRO=galactic
+ARG ROS_DISTRO=humble
 
 FROM ros:${ROS_DISTRO}-ros-core
 
@@ -14,7 +14,7 @@ ENV FASTRTPS_DEFAULT_PROFILES_FILE=/etc/DEFAULT_FASTRTPS_PROFILES.xml
 
 # so we can download our own-produced components
 # Packages with PKCS#11 features have fog-sw-sros component.
-RUN FOG_DEB_REPO="https://ssrc.jfrog.io/artifactory/ssrc-debian-public-remote" \
+RUN FOG_DEB_REPO="https://ssrc.jfrog.io/artifactory/ssrc-deb-public-local" \
 	&& echo "deb [trusted=yes] ${FOG_DEB_REPO} $(lsb_release -cs) fog-sw" > /etc/apt/sources.list.d/fogsw.list \
 	&& echo "deb [trusted=yes] ${FOG_DEB_REPO} $(lsb_release -cs) fog-sw-sros" >> /etc/apt/sources.list.d/fogsw-sros.list \
 	&& apt update
@@ -29,29 +29,30 @@ RUN apt install -y \
 	ros-${ROS_DISTRO}-geodesy \
 	ros-${ROS_DISTRO}-tf2-ros \
 	# Packages with PKCS#11 feature
-	ros-${ROS_DISTRO}-fastcdr=1.0.23-34~git20220620.92bc6c3 \
-	ros-${ROS_DISTRO}-fastrtps=2.5.1-34~git20221127.d398c9e \
-	ros-${ROS_DISTRO}-fastrtps-cmake-module=1.2.1-34~git20220815.16ec09c \
-	ros-${ROS_DISTRO}-foonathan-memory-vendor=1.2.1-34~git20220620.69df181 \
-	ros-${ROS_DISTRO}-rmw-fastrtps-cpp=5.0.0-34~git20221127.c2deeb1 \
-	ros-${ROS_DISTRO}-rmw-fastrtps-dynamic-cpp=5.0.0-34~git20221127.c2deeb1 \
-	ros-${ROS_DISTRO}-rmw-fastrtps-shared-cpp=5.0.0-34~git20221127.c2deeb1 \
-	ros-${ROS_DISTRO}-rosidl-typesupport-fastrtps-c=1.2.1-34~git20220815.16ec09c \
-	ros-${ROS_DISTRO}-rosidl-typesupport-fastrtps-cpp=1.2.1-34~git20220815.16ec09c \
-	ros-${ROS_DISTRO}-fog-msgs=0.0.8-42~git20220104.1d2cf3f \
-	ros-${ROS_DISTRO}-px4-msgs=4.0.0-31~git20220804.5058022 \
-	ros-${ROS_DISTRO}-fognav-msgs=0.1.0-33~git20221007.a0451ca
+	ros-${ROS_DISTRO}-fastcdr=1.0.26-18~git20221212.6184f25 \
+	ros-${ROS_DISTRO}-fastrtps=2.9.0-18~git20221213.4c55488 \
+	ros-${ROS_DISTRO}-fastrtps-cmake-module=2.2.0-18~git20220330.89b19c1 \
+	ros-${ROS_DISTRO}-foonathan-memory-vendor=1.2.2-18~git20221212.2ef9fc0 \
+	ros-${ROS_DISTRO}-rmw-fastrtps-cpp=6.2.2-18~git20221108.8932659 \
+	ros-${ROS_DISTRO}-rmw-fastrtps-dynamic-cpp=6.2.2-18~git20221108.8932659 \
+	ros-${ROS_DISTRO}-rmw-fastrtps-shared-cpp=6.2.2-18~git20221108.8932659 \
+	ros-${ROS_DISTRO}-rosidl-typesupport-fastrtps-c=2.2.0-18~git20220330.89b19c1 \
+	ros-${ROS_DISTRO}-rosidl-typesupport-fastrtps-cpp=2.2.0-18~git20220330.89b19c1 \
+	# ros-${ROS_DISTRO}-fog-msgs=0.0.8-42~git20220104.1d2cf3f \
+	# ros-${ROS_DISTRO}-px4-msgs=4.0.0-31~git20220804.5058022 \ # FIXME: ADD AFTER UPDATE
+	ros-${ROS_DISTRO}-fognav-msgs=1.0.0-3~git20221229.664b19d
 
 # wrapper used to launch ros with proper environment variables
 COPY ros-with-env.sh /usr/bin/ros-with-env
 
+# FIXME: ENABLE AFTER pkcs11-proxy1 IS AVAILABLE IN OUR REPO
 # Install pkcs11-proxy client library
-RUN apt-get update && \
-	apt-get install -y --no-install-recommends \
-        libengine-pkcs11-openssl \
-        libp11-dev \
-        pkcs11-proxy1 && \
-	rm -rf /var/lib/apt/lists/*
+# RUN apt-get update && \
+# 	apt-get install -y --no-install-recommends \
+#         libengine-pkcs11-openssl \
+#         libp11-dev \
+#         pkcs11-proxy1 && \
+# 	rm -rf /var/lib/apt/lists/*
 
 SHELL [ "/bin/bash", "-c" ]
 

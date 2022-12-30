@@ -5,7 +5,7 @@
 
 # please don't use this as dynamic build argument from outside of this file.
 # this is more of a shared constant-like type situation in this file.
-ARG ROS_DISTRO="galactic"
+ARG ROS_DISTRO="humble"
 
 FROM ros:${ROS_DISTRO}-ros-base
 
@@ -18,7 +18,7 @@ ARG GID=1001
 # needs to be done before FastRTPS installation because we seem to have have newer version of that
 # package in our repo. also fast-dds-gen seems to only be available from this repo.
 # Packages with PKCS#11 features have fog-sw-sros component.
-RUN FOG_DEB_REPO="https://ssrc.jfrog.io/artifactory/ssrc-debian-public-remote" \
+RUN FOG_DEB_REPO="https://ssrc.jfrog.io/artifactory/ssrc-deb-public-local" \
     && echo "deb [trusted=yes] ${FOG_DEB_REPO} $(lsb_release -cs) fog-sw" > /etc/apt/sources.list.d/fogsw.list \
     && echo "deb [trusted=yes] ${FOG_DEB_REPO} $(lsb_release -cs) fog-sw-sros" >> /etc/apt/sources.list.d/fogsw-sros.list
 
@@ -32,8 +32,15 @@ RUN apt-get update -y && apt-get install -y --no-install-recommends \
     python3-bloom \
     dh-make \
     libboost-dev \
-    ros-${ROS_DISTRO}-fastrtps=2.5.1-34~git20221127.d398c9e \
-    ros-${ROS_DISTRO}-rmw-fastrtps-cpp=5.0.0-34~git20221127.c2deeb1 \
+    ros-${ROS_DISTRO}-fastcdr=1.0.26-18~git20221212.6184f25 \
+    ros-${ROS_DISTRO}-fastrtps=2.9.0-18~git20221213.4c55488 \
+    ros-${ROS_DISTRO}-fastrtps-cmake-module=2.2.0-18~git20220330.89b19c1 \
+    ros-${ROS_DISTRO}-foonathan-memory-vendor=1.2.2-18~git20221212.2ef9fc0 \
+    ros-${ROS_DISTRO}-rmw-fastrtps-cpp=6.2.2-18~git20221108.8932659 \
+    ros-${ROS_DISTRO}-rmw-fastrtps-dynamic-cpp=6.2.2-18~git20221108.8932659 \
+    ros-${ROS_DISTRO}-rmw-fastrtps-shared-cpp=6.2.2-18~git20221108.8932659 \
+    ros-${ROS_DISTRO}-rosidl-typesupport-fastrtps-c=2.2.0-18~git20220330.89b19c1 \
+    ros-${ROS_DISTRO}-rosidl-typesupport-fastrtps-cpp=2.2.0-18~git20220330.89b19c1 \
     && rm -rf /var/lib/apt/lists/*
 
 # dedicated user because ROS builds can complain if building as root.
