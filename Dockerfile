@@ -39,20 +39,19 @@ RUN apt install -y \
 	ros-${ROS_DISTRO}-rosidl-typesupport-fastrtps-c=2.2.0-18~git20220330.89b19c1 \
 	ros-${ROS_DISTRO}-rosidl-typesupport-fastrtps-cpp=2.2.0-18~git20220330.89b19c1 \
 	# ros-${ROS_DISTRO}-fog-msgs=0.0.8-42~git20220104.1d2cf3f \
-	# ros-${ROS_DISTRO}-px4-msgs=4.0.0-31~git20220804.5058022 \ # FIXME: ADD AFTER UPDATE
+	ros-${ROS_DISTRO}-px4-msgs=4.0.0-40~git20230102.9000489 \
 	ros-${ROS_DISTRO}-fognav-msgs=1.0.0-3~git20221229.664b19d
 
 # wrapper used to launch ros with proper environment variables
 COPY ros-with-env.sh /usr/bin/ros-with-env
 
-# FIXME: ENABLE AFTER pkcs11-proxy1 IS AVAILABLE IN OUR REPO
 # Install pkcs11-proxy client library
-# RUN apt-get update && \
-# 	apt-get install -y --no-install-recommends \
-#         libengine-pkcs11-openssl \
-#         libp11-dev \
-#         pkcs11-proxy1 && \
-# 	rm -rf /var/lib/apt/lists/*
+RUN apt-get update && \
+	apt-get install -y --no-install-recommends \
+        libengine-pkcs11-openssl \
+        libp11-dev \
+        pkcs11-proxy1 && \
+	rm -rf /var/lib/apt/lists/*
 
 SHELL [ "/bin/bash", "-c" ]
 
