@@ -32,15 +32,15 @@ RUN chmod +x /usr/bin/fog-health && apt update && apt install -y \
 	ros-${ROS_DISTRO}-geodesy \
 	ros-${ROS_DISTRO}-tf2-ros \
 	# Packages with PKCS#11 feature
-	ros-${ROS_DISTRO}-fastcdr=1.0.26-38~git20221212.6184f25 \
-	ros-${ROS_DISTRO}-fastrtps=2.9.0-38~git20230110.df2857a \
-	ros-${ROS_DISTRO}-fastrtps-cmake-module=2.2.0-38~git20220330.89b19c1 \
-	ros-${ROS_DISTRO}-foonathan-memory-vendor=1.2.2-38~git20221212.2ef9fc0 \
-	ros-${ROS_DISTRO}-rmw-fastrtps-cpp=6.2.2-38~git20221108.8932659 \
-	ros-${ROS_DISTRO}-rmw-fastrtps-dynamic-cpp=6.2.2-38~git20221108.8932659 \
-	ros-${ROS_DISTRO}-rmw-fastrtps-shared-cpp=6.2.2-38~git20221108.8932659 \
-	ros-${ROS_DISTRO}-rosidl-typesupport-fastrtps-c=2.2.0-38~git20220330.89b19c1 \
-	ros-${ROS_DISTRO}-rosidl-typesupport-fastrtps-cpp=2.2.0-38~git20220330.89b19c1 \
+	ros-${ROS_DISTRO}-fastcdr=1.0.26-40~git20221212.6184f25 \
+	ros-${ROS_DISTRO}-fastrtps=2.9.0-40~git20230110.df2857a \
+	ros-${ROS_DISTRO}-fastrtps-cmake-module=2.2.0-40~git20220330.89b19c1 \
+	ros-${ROS_DISTRO}-foonathan-memory-vendor=1.2.2-40~git20221212.2ef9fc0 \
+	ros-${ROS_DISTRO}-rmw-fastrtps-cpp=6.2.2-40~git20221108.8932659 \
+	ros-${ROS_DISTRO}-rmw-fastrtps-dynamic-cpp=6.2.2-40~git20221108.8932659 \
+	ros-${ROS_DISTRO}-rmw-fastrtps-shared-cpp=6.2.2-40~git20221108.8932659 \
+	ros-${ROS_DISTRO}-rosidl-typesupport-fastrtps-c=2.2.0-40~git20220330.89b19c1 \
+	ros-${ROS_DISTRO}-rosidl-typesupport-fastrtps-cpp=2.2.0-40~git20220330.89b19c1 \
 	# ros-${ROS_DISTRO}-fog-msgs=0.0.8-42~git20220104.1d2cf3f \
 	ros-${ROS_DISTRO}-px4-msgs=4.0.0-40~git20230102.9000489 \
 	ros-${ROS_DISTRO}-fognav-msgs=1.0.0-3~git20221229.664b19d \

@@ -34,15 +34,15 @@ RUN apt-get update -y && apt-get install -y --no-install-recommends \
     python3-bloom \
     dh-make \
     libboost-dev \
-	ros-${ROS_DISTRO}-fastcdr=1.0.26-38~git20221212.6184f25 \
-	ros-${ROS_DISTRO}-fastrtps=2.9.0-38~git20230110.df2857a \
-	ros-${ROS_DISTRO}-fastrtps-cmake-module=2.2.0-38~git20220330.89b19c1 \
-	ros-${ROS_DISTRO}-foonathan-memory-vendor=1.2.2-38~git20221212.2ef9fc0 \
-	ros-${ROS_DISTRO}-rmw-fastrtps-cpp=6.2.2-38~git20221108.8932659 \
-	ros-${ROS_DISTRO}-rmw-fastrtps-dynamic-cpp=6.2.2-38~git20221108.8932659 \
-	ros-${ROS_DISTRO}-rmw-fastrtps-shared-cpp=6.2.2-38~git20221108.8932659 \
-	ros-${ROS_DISTRO}-rosidl-typesupport-fastrtps-c=2.2.0-38~git20220330.89b19c1 \
-	ros-${ROS_DISTRO}-rosidl-typesupport-fastrtps-cpp=2.2.0-38~git20220330.89b19c1 \
+	ros-${ROS_DISTRO}-fastcdr=1.0.26-40~git20221212.6184f25 \
+	ros-${ROS_DISTRO}-fastrtps=2.9.0-40~git20230110.df2857a \
+	ros-${ROS_DISTRO}-fastrtps-cmake-module=2.2.0-40~git20220330.89b19c1 \
+	ros-${ROS_DISTRO}-foonathan-memory-vendor=1.2.2-40~git20221212.2ef9fc0 \
+	ros-${ROS_DISTRO}-rmw-fastrtps-cpp=6.2.2-40~git20221108.8932659 \
+	ros-${ROS_DISTRO}-rmw-fastrtps-dynamic-cpp=6.2.2-40~git20221108.8932659 \
+	ros-${ROS_DISTRO}-rmw-fastrtps-shared-cpp=6.2.2-40~git20221108.8932659 \
+	ros-${ROS_DISTRO}-rosidl-typesupport-fastrtps-c=2.2.0-40~git20220330.89b19c1 \
+	ros-${ROS_DISTRO}-rosidl-typesupport-fastrtps-cpp=2.2.0-40~git20220330.89b19c1 \
     && rm -rf /var/lib/apt/lists/*
 
 # dedicated user because ROS builds can complain if building as root.
