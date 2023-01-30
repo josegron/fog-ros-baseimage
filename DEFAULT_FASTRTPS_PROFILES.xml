@@ -20,13 +20,13 @@
                 <discovery_config>
                     <leaseDuration>
                         <!-- DURATION -->
-                        <sec>20</sec>
+                        <sec>50</sec>
                         <nanosec>0</nanosec>
                     </leaseDuration>
 
                     <leaseAnnouncement>
                         <!-- DURATION -->
-                        <sec>10</sec>
+                        <sec>6</sec>
                         <nanosec>0</nanosec>
                     </leaseAnnouncement>
                 </discovery_config>

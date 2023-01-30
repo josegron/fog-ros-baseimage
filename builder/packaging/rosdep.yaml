@@ -12,7 +12,7 @@ dynamicEDT3D:
 fastcdr:
     ubuntu: ros-humble-fastcdr=1.0.26*
 fastrtps:
-    ubuntu: ros-humble-fastrtps=2.9.0*
+    ubuntu: ros-humble-fastrtps=2.10.0*
 fastrtps_cmake_module:
     ubuntu: ros-humble-fastrtps-cmake-module=2.2.0*
 fog_msgs:
@@ -20,7 +20,7 @@ fog_msgs:
 foonathan_memory_vendor:
     ubuntu: ros-humble-foonathan-memory-vendor=1.2.2*
 px4_msgs:
-    ubuntu: ros-humble-px4-msgs=4.0.0*
+    ubuntu: ros-humble-px4-msgs=5.0.0*
 fognav_msgs:
     ubuntu: ros-humble-fognav-msgs=1.0.0*
 rosidl_default_generators:
