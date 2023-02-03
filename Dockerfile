@@ -44,7 +44,6 @@ RUN chmod +x /usr/bin/fog-health && apt update && apt install -y \
 	# ros-${ROS_DISTRO}-fog-msgs=0.0.8-42~git20220104.1d2cf3f \
 	ros-${ROS_DISTRO}-px4-msgs=5.0.0-41~git20230130.b2a125f \
 	ros-${ROS_DISTRO}-fognav-msgs=1.0.0-3~git20221229.664b19d \
-  && chmod +x /usr/bin/fog-health \
 	&& rm -rf /var/lib/apt/lists/*
 
 # wrapper used to launch ros with proper environment variables
