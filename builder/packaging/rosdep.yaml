@@ -22,7 +22,7 @@ foonathan_memory_vendor:
 px4_msgs:
     ubuntu: ros-humble-px4-msgs=5.0.0*
 fognav_msgs:
-    ubuntu: ros-humble-fognav-msgs=1.0.0*
+    ubuntu: ros-humble-fognav-msgs=1.1.0*
 rosidl_default_generators:
     ubuntu: ros-humble-rosidl-default-generators
 rosidl_typesupport_fastrtps_c:
