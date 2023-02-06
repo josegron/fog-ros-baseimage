@@ -15,8 +15,6 @@ fastrtps:
     ubuntu: ros-humble-fastrtps=2.10.0*
 fastrtps_cmake_module:
     ubuntu: ros-humble-fastrtps-cmake-module=2.2.0*
-fog_msgs:
-    ubuntu: ros-humble-fog-msgs=0.0.8*
 foonathan_memory_vendor:
     ubuntu: ros-humble-foonathan-memory-vendor=1.2.2*
 px4_msgs:

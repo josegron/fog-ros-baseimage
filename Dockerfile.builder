@@ -23,7 +23,7 @@ RUN FOG_DEB_REPO="https://ssrc.jfrog.io/artifactory/ssrc-deb-public-local" \
     && echo "deb [trusted=yes] ${FOG_DEB_REPO} $(lsb_release -cs) fog-sw-sros" >> /etc/apt/sources.list.d/fogsw-sros.list
 
 # Install build dependencies
-# - ros-<DISTRO>-rmw-fastrtps-cpp is needed for building msgs (fog-msgs, px4-msgs)
+# - ros-<DISTRO>-rmw-fastrtps-cpp is needed for building msgs (fognav-msgs, px4-msgs)
 # - prometheus-cpp is needed for build headers
 #
 # WARNING: the same FastRTPS pinning happens in Dockerfile, please update that if you change this!
