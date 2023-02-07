@@ -110,14 +110,14 @@ fi
 export DEB_BUILD_OPTIONS="parallel=`nproc`"
 
 # generates makefile at debian/rules, which is used to invoke the actual build.
-bloom-generate rosdebian --os-name ubuntu --os-version focal --ros-distro ${ROS_DISTRO} --place-template-files
+bloom-generate rosdebian --os-name ubuntu --os-version jammy --ros-distro ${ROS_DISTRO} --place-template-files
 
 sed -i "s/@(DebianInc)@(Distribution)/@(DebianInc)/" debian/changelog.em
 
 # modify the distribution in the template and ignore warnings from sed and not stop the script.
 [ ! "$distr" = "" ] && sed -i "s/@(Distribution)/${distr}/" debian/changelog.em || :
 
-bloom-generate rosdebian --os-name ubuntu --os-version focal --ros-distro ${ROS_DISTRO} --process-template-files -i ${build_nbr}${git_version_string}
+bloom-generate rosdebian --os-name ubuntu --os-version jammy --ros-distro ${ROS_DISTRO} --process-template-files -i ${build_nbr}${git_version_string}
 
 sed -i 's/^\tdh_shlibdeps.*/& --dpkg-shlibdeps-params=--ignore-missing-info/g' debian/rules
 

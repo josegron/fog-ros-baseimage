@@ -74,7 +74,7 @@ function rosdep_init_update_and_install {
 	fi
 
 	echo "[INFO] Updating rosdep"
-	rosdep update --include-eol-distros
+	rosdep update
 
 	apt update
 	echo "[INFO] Running rosdep install.."
@@ -166,7 +166,7 @@ function step {
 function build_process {
 	step rosdep_init_update_and_install /main_ws/src
 
-	rosdep update --include-eol-distros
+	rosdep update
 
 	if [[ ! -v SKIP_BUILD_UNDERLAY_STEPS ]]; then
 		step build_underlay_deps /main_ws/src

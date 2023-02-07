@@ -4,30 +4,28 @@
 # This is a translation layer from "ROS package" name into the package name used by your distro's
 # package manager (package name can be different in apt/yum/pip repos..).
 #
-# e.g. "px4_msgs in Debian packages means ros-galactic-px4-msgs"
+# e.g. "px4_msgs in Debian packages means ros-humble-px4-msgs"
 # see: https://wiki.ros.org/rosdep/rosdep.yaml
 
 dynamicEDT3D:
-    ubuntu: ros-galactic-dynamic-edt-3d
+    ubuntu: ros-humble-dynamic-edt-3d
 fastcdr:
-    ubuntu: ros-galactic-fastcdr=1.0.23*
+    ubuntu: ros-humble-fastcdr=1.0.26*
 fastrtps:
-    ubuntu: ros-galactic-fastrtps=2.5.1*
+    ubuntu: ros-humble-fastrtps=2.10.0*
 fastrtps_cmake_module:
-    ubuntu: ros-galactic-fastrtps-cmake-module=1.2.1*
-fog_msgs:
-    ubuntu: ros-galactic-fog-msgs=0.0.8*
+    ubuntu: ros-humble-fastrtps-cmake-module=2.2.0*
 foonathan_memory_vendor:
-    ubuntu: ros-galactic-foonathan-memory-vendor=1.2.1*
+    ubuntu: ros-humble-foonathan-memory-vendor=1.2.2*
 px4_msgs:
-    ubuntu: ros-galactic-px4-msgs=4.0.0*
+    ubuntu: ros-humble-px4-msgs=5.0.0*
 fognav_msgs:
-    ubuntu: ros-galactic-fognav-msgs=0.1.0*
+    ubuntu: ros-humble-fognav-msgs=1.1.0*
 rosidl_default_generators:
-    ubuntu: ros-galactic-rosidl-default-generators
+    ubuntu: ros-humble-rosidl-default-generators
 rosidl_typesupport_fastrtps_c:
-    ubuntu: ros-galactic-rosidl-typesupport-fastrtps-c=1.2.1*
+    ubuntu: ros-humble-rosidl-typesupport-fastrtps-c=2.2.0*
 rosidl_typesupport_fastrtps_cpp:
-    ubuntu: ros-galactic-rosidl-typesupport-fastrtps-cpp=1.2.1*
+    ubuntu: ros-humble-rosidl-typesupport-fastrtps-cpp=2.2.0*
 mavsdk:
     ubuntu: mavsdk=0.42.0*
