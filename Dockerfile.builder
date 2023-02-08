@@ -11,10 +11,6 @@ FROM ros:${ROS_DISTRO}-ros-base
 
 WORKDIR /main_ws/src
 
-# FIXME: these can be removed after '$ groupadd builder' is removed
-ARG UID=1001
-ARG GID=1001
-
 # needs to be done before FastRTPS installation because we seem to have have newer version of that
 # package in our repo. also fast-dds-gen seems to only be available from this repo.
 # Packages with PKCS#11 features have fog-sw-sros component.
@@ -45,13 +41,6 @@ RUN apt-get update -y && apt-get install -y --no-install-recommends \
     ros-${ROS_DISTRO}-rosidl-typesupport-fastrtps-cpp=2.2.0-44~git20220330.89b19c1 \
     prometheus-cpp \
     && rm -rf /var/lib/apt/lists/*
-
-# dedicated user because ROS builds can complain if building as root.
-# TODO: fix & remove this requirement?
-RUN groupadd -g $GID builder && \
-    useradd -m -u $UID -g $GID -g builder builder && \
-    usermod -aG sudo builder && \
-    echo 'builder ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
 COPY builder/packaging /packaging
 
