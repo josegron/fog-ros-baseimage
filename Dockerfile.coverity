@@ -2,8 +2,7 @@ FROM ghcr.io/tiiuae/fog-ros-baseimage-builder:latest
 
 # Workaround for rosdep issue with libpcl-dev install
 RUN apt update -y \
-    && apt install -y --no-install-recommends libpcl-dev fontconfig \
-    && rm -rf /var/lib/apt/lists/*
+    && apt install -y --no-install-recommends libpcl-dev fontconfig
 RUN git config --global --add safe.directory /main_ws/src
 
 # coverity docker registry access token to download coverity tool
@@ -24,7 +23,7 @@ RUN chmod 400 /auth_key.txt
 # - download coverity installer package
 # - chmod and run the installer
 # - remove installation package to reduce image size
-RUN curl https://sig-repo.synopsys.com/artifactory/coverity-releases/2022.12.0/cov-analysis-linux64-2022.12.0.sh -o /coverity_install.sh -u ${COVERITY_DOCKER_REGISTRY_USERNAME}:${COVERITY_DOCKER_REGISTRY_ACCESS_TOKEN} \
+RUN curl https://sig-repo.synopsys.com/artifactory/coverity-releases/2022.12.2/cov-analysis-linux64-2022.12.2.sh -o /coverity_install.sh -u ${COVERITY_DOCKER_REGISTRY_USERNAME}:${COVERITY_DOCKER_REGISTRY_ACCESS_TOKEN} \
     && chmod +x /coverity_install.sh \
     && /coverity_install.sh -q --installation.dir=/cov --license.region=6 --license.agreement=agree --license.type.choice=0 --license.cov.path=/license.dat \
     && rm /coverity_install.sh
