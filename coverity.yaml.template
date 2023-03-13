@@ -1,0 +1,11 @@
+capture:
+  build:
+    build-command: SKIP_BUILD_UNDERLAY_STEPS=true /packaging/build.sh
+
+commit:
+  connect:
+    auth-key-file: /auth_key.txt
+    stream: [PROJECT_NAME]_github_ci
+    url: https://coverity.ssrc.fi:443/
+    on-new-cert: trust
+

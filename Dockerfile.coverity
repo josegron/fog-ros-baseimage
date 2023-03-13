@@ -27,3 +27,8 @@ RUN curl https://sig-repo.synopsys.com/artifactory/coverity-releases/2022.12.2/c
     && chmod +x /coverity_install.sh \
     && /coverity_install.sh -q --installation.dir=/cov --license.region=6 --license.agreement=agree --license.type.choice=0 --license.cov.path=/license.dat \
     && rm /coverity_install.sh
+
+COPY entrypoint-coverity.sh /
+COPY coverity.yaml.template /
+
+ENTRYPOINT ["/entrypoint-coverity.sh"]
