@@ -19,6 +19,12 @@ foonathan_memory_vendor:
     ubuntu: ros-humble-foonathan-memory-vendor=1.2.2*
 px4_msgs:
     ubuntu: ros-humble-px4-msgs=5.0.0*
+dynmsg:
+    ubuntu: ros-humble-dynmsg=0.1.0*
+fog_lib:
+    ubuntu: ros-humble-fog-lib=0.2.0*
+fog_msgs:
+    ubuntu: ros-humble-fog-msgs=0.1.0*
 fognav_msgs:
     ubuntu: ros-humble-fognav-msgs=1.1.0*
 rosidl_default_generators:
@@ -28,4 +34,4 @@ rosidl_typesupport_fastrtps_c:
 rosidl_typesupport_fastrtps_cpp:
     ubuntu: ros-humble-rosidl-typesupport-fastrtps-cpp=2.2.0*
 mavsdk:
-    ubuntu: mavsdk=0.42.0*
+    ubuntu: mavsdk=1.0.6*
