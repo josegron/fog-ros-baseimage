@@ -44,7 +44,7 @@ RUN apt-get update -y && apt-get install -y --no-install-recommends \
 
 COPY builder/packaging /packaging
 
-ARG GO_VERSION=1.19
+ARG GO_VERSION=1.20.2
 
 # Install golang
 RUN curl -L https://golang.org/dl/go$GO_VERSION.linux-amd64.tar.gz \
